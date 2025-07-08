@@ -12,94 +12,112 @@ import './styles/responsive.css';
 import Button from './components/UI/Button';
 import Input from './components/UI/Input';
 import Card from './components/UI/Card';
+import Modal from './components/UI/Modal';
+import ProgressBar from './components/Layout/ProgressBar';
+import Container from './components/Layout/Container';
 
 // Component Test Page
 const ComponentTest = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
 
-  const handleButtonClick = () => {
-    setLoading(true);
-    toast.success('Button clicked!');
-    setTimeout(() => setLoading(false), 2000);
-  };
+  const steps = [
+    { title: 'معلومات الدافع', subtitle: 'البيانات الشخصية' },
+    { title: 'إدارة السلة', subtitle: 'المنتجات والأسعار' },
+    { title: 'رابط الدفع', subtitle: 'إنشاء ومشاركة' }
+  ];
 
   return (
-    <div className="container" style={{ paddingTop: '2rem' }}>
+    <Container>
       <Card padding="large">
         <h1 style={{ color: 'var(--primary-yellow)', marginBottom: '2rem' }}>
-          🧱 Component Testing
+          🧩 Advanced Components Testing
         </h1>
-        
-        {/* Button Tests */}
+
+        {/* Progress Bar Test */}
         <section style={{ marginBottom: '2rem' }}>
-          <h3>Buttons:</h3>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '1rem' }}>
-            <Button variant="primary" onClick={handleButtonClick} loading={loading}>
-              Primary Button
+          <h3>Progress Bar:</h3>
+          <ProgressBar steps={steps} currentStep={currentStep} />
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+            <Button 
+              size="small" 
+              onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
+              disabled={currentStep === 0}
+            >
+              السابق
             </Button>
-            <Button variant="secondary">
-              Secondary Button
-            </Button>
-            <Button variant="success" size="small">
-              Success Small
-            </Button>
-            <Button variant="danger" disabled>
-              Disabled Button
+            <Button 
+              size="small" 
+              onClick={() => setCurrentStep(Math.min(2, currentStep + 1))}
+              disabled={currentStep === 2}
+            >
+              التالي
             </Button>
           </div>
         </section>
 
-        {/* Input Tests */}
+        {/* Modal Test */}
         <section style={{ marginBottom: '2rem' }}>
-          <h3>Inputs:</h3>
-          <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem', maxWidth: '400px' }}>
-            <Input
-              label="Name"
-              placeholder="Enter your name"
-              required
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <Input
-              label="Email"
-              type="email"
-              placeholder="your@email.com"
-              helper="We'll never share your email"
-            />
-            <Input
-              label="Password"
-              type="password"
-              error="Password is too short"
-            />
-            <Input
-              label="Disabled Input"
-              disabled
-              placeholder="This is disabled"
-            />
-          </div>
+          <h3>Modal:</h3>
+          <Button onClick={() => setModalOpen(true)}>
+            فتح Modal
+          </Button>
+          
+          <Modal 
+            isOpen={modalOpen} 
+            onClose={() => setModalOpen(false)}
+            title="إضافة منتج جديد"
+            size="medium"
+          >
+            <div style={{ display: 'grid', gap: '1rem' }}>
+              <Input 
+                label="اسم المنتج" 
+                placeholder="أدخل اسم المنتج"
+                required
+              />
+              <Input 
+                label="السعر" 
+                type="number" 
+                placeholder="0.00"
+                required
+              />
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                <Button variant="secondary" onClick={() => setModalOpen(false)}>
+                  إلغاء
+                </Button>
+                <Button onClick={() => {
+                  toast.success('تم إضافة المنتج!');
+                  setModalOpen(false);
+                }}>
+                  إضافة
+                </Button>
+              </div>
+            </div>
+          </Modal>
         </section>
 
-        {/* Card Tests */}
+        {/* Container Test */}
         <section>
-          <h3>Cards:</h3>
-          <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
-            <Card hoverable>
-              <h4>Hoverable Card</h4>
-              <p>Hover over me!</p>
+          <h3>Container Variants:</h3>
+          <div style={{ display: 'grid', gap: '1rem', marginTop: '1rem' }}>
+            <Card variant="highlighted">
+              <h4>Container Default</h4>
+              <p>Max-width: 1200px with responsive padding</p>
             </Card>
-            <Card variant="highlighted" clickable onClick={() => toast.success('Card clicked!')}>
-              <h4>Clickable Card</h4>
-              <p>Click me!</p>
-            </Card>
-            <Card variant="success">
-              <h4>Success Card</h4>
-              <p>Success variant</p>
-            </Card>
+          </div>
+        </section>
+
+        {/* Previous Components */}
+        <section style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--medium-gray)' }}>
+          <h3>Previous Components:</h3>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="success">Success</Button>
           </div>
         </section>
       </Card>
-    </div>
+    </Container>
   );
 };
 
