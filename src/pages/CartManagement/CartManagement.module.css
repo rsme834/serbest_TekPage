@@ -1,0 +1,241 @@
+.cartPage {
+  min-height: 100vh;
+  padding: var(--spacing-lg) 0;
+}
+
+.cartLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.rightPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.sectionHeader {
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.sectionHeader h2 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.sectionHeader p {
+  color: var(--text-secondary);
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.customProductSection {
+  text-align: center;
+  padding-top: var(--spacing-md);
+  border-top: 2px solid var(--light-gray);
+}
+
+.addCustomBtn {
+  width: 100%;
+  max-width: 300px;
+}
+
+.cartSection {
+  flex: 1;
+}
+
+.emptyCart {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-secondary);
+}
+
+.emptyCartIcon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.emptyCart h3 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.summarySection {
+  background: var(--gradient-light);
+  border: 2px solid var(--primary-yellow);
+}
+
+.summaryDetails {
+  margin-bottom: var(--spacing-lg);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.summaryRow span:first-child {
+  color: var(--text-secondary);
+}
+
+.summaryRow span:last-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.totalRow {
+  border-bottom: none;
+  padding-top: var(--spacing-md);
+  border-top: 2px solid var(--primary-yellow);
+  font-size: var(--font-size-lg);
+}
+
+.totalRow span {
+  color: var(--primary-yellow);
+  font-weight: 700;
+}
+
+.additionalSettings {
+  margin-bottom: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 2px solid var(--medium-gray);
+}
+
+.additionalSettings h3 {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-lg);
+}
+
+.settingRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.settingRow label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.settingSelect {
+  padding: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  border: 2px solid var(--medium-gray);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--text-primary);
+  transition: var(--transition-base);
+}
+
+.settingSelect:focus {
+  outline: none;
+  border-color: var(--primary-yellow);
+  box-shadow: 0 0 0 3px rgba(245, 213, 71, 0.1);
+}
+
+.settingInput {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.readOnlyInput {
+  flex: 1;
+  padding: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-family: 'Monaco', 'Menlo', monospace;
+  border: 2px solid var(--medium-gray);
+  border-radius: var(--radius-md);
+  background: var(--light-gray);
+  color: var(--text-secondary);
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.emptyCartWarning {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.emptyCartWarning p {
+  color: #991B1B;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cartLayout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cartPage {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+  }
+  
+  .settingInput {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionHeader h2 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .summaryRow {
+    font-size: var(--font-size-sm);
+  }
+  
+  .totalRow {
+    font-size: var(--font-size-base);
+  }
+}
