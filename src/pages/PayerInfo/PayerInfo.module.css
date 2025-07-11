@@ -1,0 +1,553 @@
+/* Hide desktop button on large screens */
+@media (min-width: 769px) {
+  .formActionsMobile {
+    display: none;
+  }
+  
+  .submitButtonDesktop,
+  .toggleButtonDesktop {
+    display: inline-block !important;
+  }
+}/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.payerInfoPage {
+  min-height: 100vh;
+  padding: var(--spacing-lg) 0;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+
+/* Main Container for Toggle Animation */
+.mainContainer {
+  background-color: var(--white);
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  width: 1400px;
+  max-width: 90vw;
+  min-height: 750px;
+  margin: 0 auto;
+  transition: all 0.6s ease-in-out;
+  /* ضمان عدم تقييد العرض */
+  flex-shrink: 0;
+}
+
+/* Form Container Base */
+.formContainer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+/* Payer Form */
+.payerForm {
+  left: 0;
+  width: 60%;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+.mainContainer.active .payerForm {
+   transform: translateX(-100%);
+  opacity: 0;
+  
+}
+
+/* Success Section */
+.payerSuccess {
+  left: 0;
+  width: 60%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.mainContainer.active .payerSuccess {
+  transform: translateX(66.67%);
+  opacity: 1;
+  z-index: 5;
+  animation: showSuccess 0.6s;
+}
+
+@keyframes showSuccess {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+/* Success Container Styles */
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.successContainer h2 {
+  color: var(--primary-yellow);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.successContainer p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.successIcon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--primary-yellow), #ffd700);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  animation: pulse 2s infinite;
+}
+
+.checkmark {
+  color: var(--white);
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.successMessage {
+  color: var(--primary-yellow);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Toggle Container */
+.toggleContainer {
+  position: absolute;
+  top: 0;
+  left: 60%;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
+}
+
+.mainContainer.active .toggleContainer {
+  transform: translateX(-150%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+  background: linear-gradient(135deg, var(--primary-yellow), #ffd700, #ffeb3b);
+  height: 100%;
+  color: var(--white);
+  position: relative;
+  left: -100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.mainContainer.active .toggle {
+  transform: translateX(50%);
+}
+
+.togglePanel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggleLeft {
+  transform: translateX(-200%);
+}
+
+.mainContainer.active .toggleLeft {
+  transform: translateX(0);
+}
+
+.toggleRight {
+  right: 0;
+  transform: translateX(0);
+}
+
+.mainContainer.active .toggleRight {
+  transform: translateX(200%);
+}
+
+.togglePanel h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.togglePanel p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.toggleButtonDesktop {
+  background-color: transparent !important;
+  border: 2px solid var(--white) !important;
+  color: var(--white) !important;
+  padding: 12px 24px !important;
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.toggleButtonDesktop:hover {
+  background-color: var(--white) !important;
+  color: var(--primary-yellow) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(255,255,255,0.3) !important;
+}
+
+/* Form Card Styles */
+.formCard {
+  height: 100%;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 30px 40px !important;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+}
+
+.header h1 {
+  color: var(--primary-yellow);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-lg);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.section h2 {
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 3px solid var(--primary-yellow);
+  background: linear-gradient(90deg, var(--yellow-light), transparent);
+  padding-left: var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, var(--yellow-light), #fff8e1);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--primary-yellow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.checkboxContainer:hover {
+  background: linear-gradient(135deg, var(--primary-yellow), #ffd700);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(245, 213, 71, 0.3);
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--primary-yellow);
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.checkboxLabel {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.checkboxContainer:hover .checkboxLabel {
+  color: var(--white);
+}
+
+.formActionsMobile {
+  display: none; /* مخفي في الشاشات الكبيرة */
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 3px solid var(--primary-yellow);
+}
+
+.submitButtonMobile {
+  width: 100%;
+}
+
+.submitButtonDesktop {
+  background-color: var(--primary-yellow) !important;
+  color: var(--white) !important;
+  border: 2px solid var(--primary-yellow) !important;
+  padding: 15px 30px !important;
+  border-radius: 25px !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 5px 15px rgba(245, 213, 71, 0.4) !important;
+}
+
+.submitButtonDesktop:hover {
+  background-color: var(--accent-yellow) !important;
+  border-color: var(--accent-yellow) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(245, 213, 71, 0.6) !important;
+}
+
+/* Enhanced Button Styles */
+.formActionsMobile button {
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 15px 24px;
+}
+
+.formActionsMobile button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mainContainer {
+    width: 95%;
+    margin: 0 var(--spacing-md);
+  }
+  
+  .payerForm,
+  .payerSuccess {
+    width: 65%;
+  }
+  
+  .toggleContainer {
+    left: 65%;
+    width: 35%;
+  }
+  
+  .mainContainer.active .payerForm,
+  .mainContainer.active .payerSuccess {
+    transform: translateX(54%);
+  }
+  
+  .mainContainer.active .toggleContainer {
+    transform: translateX(-186%);
+  }
+  
+  /* إظهار زر الموبايل */
+  .formActionsMobile {
+    display: flex;
+  }
+  
+  /* إخفاء أزرار الديسكتوب في الجوال */
+  .submitButtonDesktop,
+  .toggleButtonDesktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .payerInfoPage {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .mainContainer {
+    border-radius: 20px;
+    margin: 0 var(--spacing-sm);
+    /* تصميم التوگل من الأعلى للجوال */
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .payerForm,
+  .payerSuccess {
+    width: 100%;
+    position: relative;
+    min-height: 400px;
+    order: 2; /* الفورم في الأسفل */
+  }
+  
+  .toggleContainer {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 280px;
+    border-radius:  0 0 150px 150px;
+    order: 1; /* التوگل في الأعلى */
+    z-index: 1000;
+  }
+  
+  .toggle {
+    border-radius: 20px 20px 0 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .togglePanel {
+    padding: 1.5rem;
+    width: 100%;
+    position: relative;
+  }
+  
+  .toggleLeft {
+    transform: translateX(0);
+    left: 0;
+    /* إخفاء Panel الأيسر في الجوال */
+    display: none;
+  }
+  
+  .toggleRight {
+    transform: translateX(0);
+    right: 0;
+    /* Panel الأيمن يأخذ العرض كاملاً */
+    width: 100%;
+    left: 0;
+  }
+  
+  .mainContainer.active .toggleLeft {
+    transform: translateX(0);
+    display: none; /* يبقى مخفي حتى بعد التفعيل */
+  }
+  
+  .mainContainer.active .toggleRight {
+    transform: translateX(0);
+    width: 100%;
+    left: 0;
+  }
+  
+  .togglePanel h1 {
+    font-size: 1.5rem;
+  }
+  
+  .togglePanel p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .mainContainer.active .payerForm,
+  .mainContainer.active .payerSuccess {
+    transform: none;
+  }
+  
+  .mainContainer.active .toggleContainer {
+    transform: none;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .formActionsMobile {
+    display: flex;
+  }
+  
+  /* إخفاء أزرار الديسكتوب في الجوال */
+  .submitButtonDesktop,
+  .toggleButtonDesktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .header p {
+    font-size: var(--font-size-base);
+  }
+  
+  .section h2 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .successContainer h2 {
+    font-size: 2rem;
+  }
+  
+  .successIcon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .checkmark {
+    font-size: 2rem;
+  }
+}
