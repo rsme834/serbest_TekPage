@@ -14,14 +14,7 @@ import { CartProvider } from './context/CartContext';
 // Import Pages
 import PayerInfo from './pages/PayerInfo';
 import CartManagement from './pages/CartManagement';
-
-// Temporary Pages
-const PaymentLinkPage = () => (
-  <div style={{ padding: '2rem', textAlign: 'center' }}>
-    <h1>🔗 Payment Link Page</h1>
-    <p>Coming soon...</p>
-  </div>
-);
+import PaymentLink from './pages/PaymentLink';
 
 function App() {
   return (
@@ -51,7 +44,7 @@ function App() {
               <Route path="/" element={<Navigate to="/payer-info" replace />} />
               <Route path="/payer-info" element={<PayerInfo />} />
               <Route path="/cart" element={<CartManagement />} />
-              <Route path="/payment-link" element={<PaymentLinkPage />} />
+              <Route path="/payment-link" element={<PaymentLink />} />
               <Route path="*" element={<Navigate to="/payer-info" replace />} />
             </Routes>
           </div>

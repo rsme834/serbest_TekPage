@@ -8,7 +8,7 @@
   --yellow-light: #FEF3C7;
   
   /* ألوان إضافية مستوحاة من الصور */
-  --success-green: #10B981;
+  --success-green: #dbb200;
   --light-green: #D1FAE5;
   
   /* ألوان محايدة */
@@ -20,8 +20,9 @@
   --text-secondary: #6B7280;
   
   /* التدرجات */
+  
   --gradient-main: linear-gradient(135deg, #F5D547 0%, #F2C94C 50%, #E0A500 100%);
-  --gradient-light: linear-gradient(135deg, #FEF3C7 0%, #F5D547 100%);
+  --gradient-light: linear-gradient(135deg, #efece2 0%, #eee6c2 100%);
   --gradient-success: linear-gradient(135deg, #D1FAE5 0%, #10B981 100%);
   
   /* الخطوط */
