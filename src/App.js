@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import CombinedPage from './pages/CombinedPage';
 
 // Import Styles
 import './styles/variables.css';
@@ -13,6 +12,8 @@ import { PayerProvider } from './context/PayerContext';
 import { CartProvider } from './context/CartContext';
 
 // Import Pages
+import PayerInfo from './pages/PayerInfo';
+import CartManagement from './pages/CartManagement';
 import PaymentLink from './pages/PaymentLink';
 
 function App() {
@@ -38,12 +39,13 @@ function App() {
                 },
               }}
             />
-            
+
             <Routes>
-              <Route path="/" element={<CombinedPage />} />              {/* الرئيسية */}
-              <Route path="/combined" element={<CombinedPage />} />       {/* البديل */}
+              <Route path="/" element={<Navigate to="/payer-info" replace />} />
+              <Route path="/payer-info" element={<PayerInfo />} />
+              <Route path="/cart" element={<CartManagement />} />
               <Route path="/payment-link" element={<PaymentLink />} />
-              <Route path="*" element={<Navigate to="/" replace />} />    {/* أي رابط خطأ */}
+              <Route path="*" element={<Navigate to="/payer-info" replace />} />
             </Routes>
           </div>
         </Router>
