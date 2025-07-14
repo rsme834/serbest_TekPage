@@ -1,0 +1,614 @@
+:root {
+  --primary-yellow: #f5d547;
+  --secondary-yellow: #ffd700;
+  --accent-yellow: #ffeb3b;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --white: #ffffff;
+  --light-gray: #f9fafb;
+  --medium-gray: #e5e7eb;
+  --dark-gray: #374151;
+  --success-color: #f5d547; /* تغيير اللون إلى الأصفر */
+  --border-radius: 16px;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.paymentLinkPage {
+  min-height: 100vh;
+  padding: 1.5rem 0;
+}
+
+/* Loading States */
+.loadingContainer,
+.errorContainer {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.loadingCard,
+.errorCard {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--gradient-card);
+  border: 2px solid var(--primary-yellow);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.loadingContent,
+.errorContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+}
+
+/* عودة إلى علامة التحميل الأصلية */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--light-gray);
+  border-top: 4px solid var(--primary-yellow);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 2rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadingContent h2 {
+  color: var(--primary-yellow);
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.loadingContent p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  color: #ef4444;
+}
+
+.errorContent h2 {
+  color: #ef4444;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.errorActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Success Card */
+.successCard {
+  max-width: 700px; /* تصغير العرض */
+  margin: 0 auto;
+  background: var(--gradient-card);
+  border: 2px solid var(--primary-yellow);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem;
+}
+
+.successHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* دائرة النجاح مع علامة الصح */
+.successIcon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-yellow), var(--secondary-yellow));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(245, 213, 71, 0.4);
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+@keyframes successPulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 8px 25px rgba(245, 213, 71, 0.4);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(245, 213, 71, 0.6);
+  }
+}
+
+/* علامة الصح المرسومة - أكبر بكثير */
+.checkmark {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.checkmark::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  background: white;
+  left: 18px;
+  top: 15px;
+  transform: rotate(45deg);
+  border-radius: 3px;
+  animation: drawCheck1 0.5s ease-in-out 0.5s both;
+}
+
+.checkmark::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background: white;
+  left: 10px;
+  top: 22px;
+  transform: rotate(-45deg);
+  border-radius: 3px;
+  animation: drawCheck2 0.3s ease-in-out 0.8s both;
+}
+
+@keyframes drawCheck1 {
+  0% { height: 0; }
+  100% { height: 20px; }
+}
+
+@keyframes drawCheck2 {
+  0% { height: 0; }
+  100% { height: 10px; }
+}
+
+.successHeader h1 {
+  color: var(--primary-yellow);
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.successHeader p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.contentLayout {
+  margin-bottom: 2rem;
+}
+
+.linkSection {
+  margin-bottom: 1.5rem;
+}
+
+.linkSection h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.linkContainer {
+  margin-bottom: 1.5rem;
+}
+
+.linkDisplay {
+  display: flex;
+  gap: 0.75rem;
+  background: var(--white);
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: 2px solid var(--primary-yellow);
+  box-shadow: var(--shadow-soft);
+}
+
+.linkInput {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  background: transparent;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.linkInput:focus {
+  outline: none;
+}
+
+.copyButton {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary-yellow), var(--secondary-yellow));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.copyButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 213, 71, 0.4);
+}
+
+.quickSummary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--medium-gray);
+  box-shadow: var(--shadow-soft);
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.summaryItem span:first-child {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.summaryItem strong {
+  color: var(--primary-yellow);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Share Section - تصميم جديد مع الأيقونات */
+.shareSection {
+  text-align: center;
+}
+
+.shareSection h3 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.shareButtons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 أزرار بدلاً من 4 */
+  gap: 1rem;
+}
+
+.shareButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--white);
+  border: 2px solid var(--medium-gray);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-soft);
+}
+
+.shareButton:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-yellow);
+  box-shadow: 0 8px 25px rgba(245, 213, 71, 0.3);
+}
+
+.shareIcon {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.shareText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* WhatsApp Button */
+.shareButton.whatsapp {
+  border-color: #25d366;
+}
+
+.shareButton.whatsapp:hover {
+  border-color: #25d366;
+  background: #f0fdf4;
+}
+
+.shareButton.whatsapp .shareIcon {
+  color: #25d366;
+}
+
+/* Email Button */
+.shareButton.email {
+  border-color: #3b82f6;
+}
+
+.shareButton.email:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.shareButton.email .shareIcon {
+  color: #3b82f6;
+}
+
+/* QR Code Button */
+.shareButton.qr {
+  border-color: var(--dark-gray);
+}
+
+.shareButton.qr:hover {
+  border-color: var(--dark-gray);
+  background: #f9fafb;
+}
+
+.shareButton.qr .shareIcon {
+  color: var(--dark-gray);
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--medium-gray);
+}
+
+.actionButtons button {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.newPaymentBtn {
+  background: linear-gradient(135deg, var(--primary-yellow), var(--secondary-yellow));
+  color: white;
+  border: none;
+  font-size: 1rem;
+}
+
+.newPaymentBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 213, 71, 0.4);
+}
+
+/* Modal Content Styles */
+.detailsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.detailSection {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.detailSection:last-child {
+  border-bottom: none;
+}
+
+.detailSection h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-yellow);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.detailGrid div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detailGrid label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.detailGrid span {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detailItem {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--light-gray);
+  border-radius: 8px;
+}
+
+.itemName {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.itemQuantity {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.itemPrice {
+  font-weight: 600;
+  color: var(--primary-yellow);
+}
+
+.summaryDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.summaryRow span:first-child {
+  color: var(--text-secondary);
+}
+
+.summaryRow span:last-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.totalRow {
+  border-top: 2px solid var(--primary-yellow);
+  padding-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.totalRow span {
+  color: var(--primary-yellow);
+  font-weight: 700;
+}
+
+.referenceInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.referenceInfo div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.referenceInfo label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.referenceInfo span {
+  color: var(--text-primary);
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .paymentLinkPage {
+    padding: 1rem 0;
+  }
+  
+  .successCard {
+    
+    padding: 1.5rem;
+  }
+  
+  .quickSummary {
+    grid-template-columns: 1fr;
+  }
+  
+  .shareButtons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+  }
+  
+  .linkDisplay {
+    flex-direction: column;
+  }
+  
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .referenceInfo {
+    grid-template-columns: 1fr;
+  }
+  
+  .detailItem {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .successIcon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .successHeader h1 {
+    font-size: 1.5rem;
+  }
+  
+  .linkInput {
+    font-size: 0.8rem;
+  }
+  
+  .shareButtons {
+    grid-template-columns: 1fr;
+  }
+  
+  .shareButton {
+    padding: 0.75rem;
+  }
+  
+  .shareIcon {
+    font-size: 1.5rem;
+  }
+}

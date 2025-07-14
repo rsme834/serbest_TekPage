@@ -1,0 +1,70 @@
+.card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-base);
+  transition: var(--transition-base);
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+/* Variants */
+.default {
+  border: 1px solid var(--medium-gray);
+}
+
+.highlighted {
+  border: 2px solid var(--primary-yellow);
+  box-shadow: 0 0 0 3px rgba(245, 213, 71, 0.1);
+}
+
+.success {
+  border: 2px solid var(--success-green);
+  background: var(--light-green);
+}
+
+/* Padding Variants */
+.small {
+  padding: var(--spacing-sm);
+}
+
+.medium {
+  padding: var(--spacing-md);
+}
+
+.large {
+  padding: var(--spacing-lg);
+}
+
+/* Interactive States */
+.hoverable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.clickable {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.clickable:focus {
+  outline: 2px solid var(--primary-yellow);
+  outline-offset: 2px;
+}
+
+.clickable:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    border-radius: var(--radius-lg);
+  }
+}

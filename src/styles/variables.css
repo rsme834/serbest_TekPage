@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-yellow: #F5D547;
+  --secondary-yellow: #F2C94C;
+  --accent-yellow: #E0A500;
+  --yellow-light: #FEF3C7;
+  
+  --success-green: #dbb200;
+  --light-green: #D1FAE5;
+  
+  /* ألوان محايدة */
+  --white: #FFFFFF;
+  --light-gray: #F8F9FA;
+  --medium-gray: #E5E7EB;
+  --dark-gray: #374151;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  
+  /* التدرجات */
+  --gradient-card: linear-gradient(135deg, rgba(230, 255, 255, 0.2) 0%, #d7d6d5 100%);
+  --gradient-light: linear-gradient(135deg, #efece2 0%, #eee6c2 100%);
+  --gradient-success: linear-gradient(135deg, #bfb763 0%,  #F5D547 100%);
+  
+  /* الخطوط */
+  --font-family: 'Montserrat', sans-serif;
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  
+  /* المسافات */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 1rem;     /* 16px */
+  --spacing-md: 1.5rem;   /* 24px */
+  --spacing-lg: 2rem;     /* 32px */
+  --spacing-xl: 3rem;     /* 48px */
+  --spacing-2xl: 4rem;    /* 64px */
+  
+  /* زوايا الحدود */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  
+  /* الظلال */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+  
+  /* الانتقالات */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}

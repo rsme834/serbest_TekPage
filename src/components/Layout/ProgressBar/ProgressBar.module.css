@@ -1,0 +1,261 @@
+.progressBar {
+  width: 100%;
+  padding: var(--spacing-lg) 0;
+}
+
+.stepsContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.stepIndicator {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: var(--spacing-sm);
+  margin-left: 240px; /* الحفاظ على التصميم للشاشات الكبيرة */
+}
+
+.stepCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  transition: var(--transition-base);
+  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
+}
+
+.stepNumber {
+  color: inherit;
+}
+
+.stepLine {
+  flex: 1;
+  height: 2px;
+  transition: var(--transition-base);
+}
+
+.stepContent {
+  text-align: center;
+  margin-right: 10px; /* الحفاظ على margin-right للشاشات الكبيرة */
+}
+
+.stepTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+  transition: var(--transition-base);
+}
+
+.stepSubtitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+/* States */
+.completed .stepCircle {
+  background: var(--success-green);
+  color: var(--white);
+  border: 2px solid var(--success-green);
+  transform: scale(1.05);
+}
+
+.completed .stepLine {
+  background: var(--success-green);
+}
+
+.completed .stepTitle {
+  color: var(--success-green);
+  font-weight: 600;
+}
+
+.current .stepCircle {
+  background: var(--primary-yellow);
+  color: var(--white);
+  border: 2px solid var(--primary-yellow);
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 0 4px rgba(245, 213, 71, 0.2);
+}
+
+.current .stepLine {
+  background: var(--medium-gray);
+}
+
+.current .stepTitle {
+  color: var(--primary-yellow);
+  font-weight: 600;
+}
+
+.upcoming .stepCircle {
+  color: var(--text-secondary);
+  border: 2px solid var(--medium-gray);
+}
+
+.upcoming .stepLine {
+  background: var(--medium-gray);
+}
+
+.upcoming .stepTitle {
+  color: var(--text-secondary);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 213, 71, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(245, 213, 71, 0);
+  }
+}
+
+/* ===== RESPONSIVE DESIGN - ENHANCED ===== */
+@media (max-width: 768px) {
+  .stepsContainer {
+    flex-direction: column;
+    align-items: center; /* توسيط المحتوى في الشاشات الصغيرة */
+    gap: 0;
+    max-width: 400px; /* عرض محدود للتوسيط */
+  }
+  
+  .step {
+    flex-direction: row;
+    left: -25px;
+    width: 100%;
+    margin-bottom: 0;
+    align-items: flex-start;
+    position: relative;
+    justify-content: flex-start; /* محاذاة المحتوى للبداية */
+  }
+  
+  .stepIndicator {
+    flex-direction: column;
+    width: auto;
+    margin-bottom: 0;
+    margin-right: var(--spacing-md);
+    margin-left: 100px; 
+    align-items: center;
+    position: relative;
+    justify-content: center;
+  }
+  
+  .stepCircle {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-xs);
+  }
+  
+  /* الخط العمودي بين الخطوات */
+  .stepLine {
+    width: 2px;
+    height: 40px;
+    margin-left: 0;
+    margin-top: var(--spacing-xs);
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .stepContent {
+    text-align: left;
+    max-width: none;
+    flex: 1;
+    padding: var(--spacing-xs) 0;
+    min-height: 60px;
+  }
+  
+  .stepTitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .stepSubtitle {
+    font-size: var(--font-size-sm);
+  }
+  
+  /* إخفاء الخط في الخطوة الأخيرة */
+  .step:last-child .stepLine {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .progressBar {
+    padding: var(--spacing-md) 0;
+  }
+  
+  
+  
+  .stepCircle {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  
+  .stepLine {
+    height: 38px;
+    top: 18px;
+  }
+  
+  .stepContent {
+    min-height: 50px;
+  }
+  
+  .stepTitle {
+    font-size: var(--font-size-sm);
+  }
+  
+  .stepSubtitle {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* تحسينات إضافية للتفاعل */
+.stepCircle:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.completed .stepCircle:hover {
+  transform: scale(1.15);
+}
+
+/* لمسة نهائية - تأثير التدرج للخطوط */
+.completed .stepLine {
+  background: linear-gradient(90deg, var(--success-green), var(--success-green));
+  box-shadow: 0 0 4px rgba(5, 150, 105, 0.3);
+}
+
+.current .stepLine {
+  background: linear-gradient(90deg, var(--primary-yellow), var(--medium-gray));
+}
+
+/* في الوضع العمودي */
+@media (max-width: 768px) {
+  .completed .stepLine {
+    background: linear-gradient(180deg, var(--success-green), var(--success-green));
+  }
+  
+  .current .stepLine {
+    background: linear-gradient(180deg, var(--primary-yellow), var(--medium-gray));
+  }
+}
