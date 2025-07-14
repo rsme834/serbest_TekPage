@@ -1,19 +1,5 @@
-:root {
-  --primary-yellow: #f5d547;
-  --secondary-yellow: #ffd700;
-  --accent-yellow: #ffeb3b;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --white: #ffffff;
-  --light-gray: #f9fafb;
-  --medium-gray: #e5e7eb;
-  --dark-gray: #374151;
-  --success-green: #10b981;
-  --danger-red: #ef4444;
-  --border-radius: 16px;
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+.combinedPage {
+  zoom: 0.85; /* تصغير سريع لكل شيء */
 }
 
 /* Main Page Container */
@@ -22,8 +8,10 @@
   width: 100%;
   padding: 1.5rem;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   position: relative;
+}
+.combinedPage {
+  zoom: 0.85; 
 }
 
 /* Two Column Layout */
@@ -429,7 +417,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, var(--success-green), #059669);
+  background: linear-gradient(135deg, #25d366 );
   color: var(--white);
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
@@ -591,19 +579,19 @@
   padding: 1.2rem;
   font-weight: 700;
   font-size: 1.1rem;
-  background: linear-gradient(135deg, var(--success-green), #059669);
+  background: linear-gradient(135deg, var(--success-green));
   color: var(--white);
   border: none;
   border-radius: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 8px 25px rgba(245, 213, 71, 0.4);
   cursor: pointer;
 }
 
 .createPaymentBtn:hover:not(.disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.4);
-  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 8px 25px rgba(245, 213, 71, 0.4);
+  background: linear-gradient(135deg, var(--success-green), #cbc436);
 }
 
 .createPaymentBtn.disabled {
@@ -816,7 +804,7 @@
 
 .saveBtn {
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, var(--success-green), #059669);
+  background: linear-gradient(135deg, var(--success-green));
   color: var(--white);
   border: 2px solid var(--success-green);
   border-radius: 8px;
@@ -826,7 +814,7 @@
 }
 
 .saveBtn:hover {
-  background: linear-gradient(135deg, #059669, #047857);
+  background: linear-gradient(135deg, var(--success-green));
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
 }
@@ -955,5 +943,110 @@
   
   .modalActions {
     padding: 1rem 1.5rem;
+  }
+}
+
+
+
+/* تحديث CSS لزر Add Custom Product */
+.customProductSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 2px dashed var(--medium-gray);
+  width: 100%;
+}
+
+.addCustomBtn {
+  width: auto; /* تغيير من 100% إلى auto */
+  max-width: 650px;
+  min-width: 600px; /* إضافة حد أدنى للعرض */
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.8rem .5rem;
+  transition: all 0.4s ease;
+  background: linear-gradient(135deg, var(--white), var(--light-gray));
+  border: 3px solid var(--primary-yellow);
+  color: var(--text-primary);
+  border-radius: 20px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 15px rgba(245, 213, 71, 0.2);
+  margin: 0 auto; /* إضافة margin auto للتوسيط */
+}
+
+.addCustomBtn:hover {
+  transform: translateY(-6px); /* زيادة الحركة من -4px إلى -6px */
+  box-shadow: 0 20px 50px rgba(245, 213, 71, 0.4); /* ظل أكبر عند hover */
+  background: linear-gradient(135deg, var(--primary-yellow), var(--secondary-yellow));
+  color: white;
+  border-color: var(--secondary-yellow);
+  scale: 1.02; /* تكبير خفيف عند hover */
+}
+
+.addCustomBtn:active {
+  transform: translateY(-3px) scale(0.98); /* تأثير عند النقر */
+}
+
+/* إضافة أنيميشن للأيقونة */
+.addCustomBtn:hover .addCustomIcon {
+  animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  80% {
+    transform: translateY(-4px);
+  }
+}
+
+/* نص مساعد تحت الزر */
+.customProductHint {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* تحسين للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .addCustomBtn {
+    width: 90%; /* عرض 90% في الشاشات الصغيرة */
+    max-width: 350px;
+    min-width: 280px;
+    font-size: 1rem;
+    padding: 1.25rem 2rem;
+    min-height: 55px;
+  }
+  
+  .customProductHint {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .addCustomBtn {
+    width: 95%;
+    max-width: 300px;
+    min-width: 250px;
+    font-size: 0.9rem;
+    padding: 1rem 1.5rem;
+    min-height: 50px;
+  }
+  
+  .customProductSection {
+    padding-top: 1.5rem;
   }
 }
