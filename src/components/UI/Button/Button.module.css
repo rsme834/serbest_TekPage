@@ -22,7 +22,11 @@
 
 /* Variants */
 .primary {
+<<<<<<< HEAD
   background: var(--primary-yellow);
+=======
+  background: var(--gradient-main);
+>>>>>>> 94b6cc39b45f0b47572b2584098319f6c8f652c2
   color: var(--white);
   box-shadow: var(--shadow-base);
 }

@@ -552,7 +552,11 @@
   }
   
   .successCard {
+<<<<<<< HEAD
     
+=======
+    margin: 0 1rem;
+>>>>>>> 94b6cc39b45f0b47572b2584098319f6c8f652c2
     padding: 1.5rem;
   }
   

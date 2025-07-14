@@ -138,7 +138,10 @@
   
   .step {
     flex-direction: row;
+<<<<<<< HEAD
     left: -25px;
+=======
+>>>>>>> 94b6cc39b45f0b47572b2584098319f6c8f652c2
     width: 100%;
     margin-bottom: 0;
     align-items: flex-start;
@@ -203,7 +206,13 @@
     padding: var(--spacing-md) 0;
   }
   
+<<<<<<< HEAD
   
+=======
+  .stepsContainer {
+    max-width: 300px; 
+  }
+>>>>>>> 94b6cc39b45f0b47572b2584098319f6c8f652c2
   
   .stepCircle {
     width: 28px;
