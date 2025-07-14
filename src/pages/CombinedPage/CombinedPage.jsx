@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -176,7 +174,7 @@ const CombinedPage = () => {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1000));
             toast.success('Creating payment link...', {
-                icon: '',
+                icon: '', // تم الاحتفاظ بالنسخة المحلية هنا
                 style: {
                     background: '#f5d547',
                     color: '#fff',
@@ -405,7 +403,7 @@ const CombinedPage = () => {
                             disabled={!canCreatePayment || loading}
                             className={`${styles.createPaymentBtn} ${!canCreatePayment ? styles.disabled : ''}`}
                         >
-                            {loading ? '🔄 Creating...' : ' Create Payment Link'}
+                            {loading ? '🔄 Creating...' : ' Create Payment Link'} {/* تم الاحتفاظ بالنسخة المحلية هنا */}
                         </button>
 
                         {!canCreatePayment && (

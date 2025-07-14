@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 .combinedPage {
   zoom: 0.85; 
 }
+=======
+
+>>>>>>> 9023876a7449f97264b7b27ff5d626bd60e3c0b6
 
 /* Main Page Container */
 .combinedPage {
@@ -10,9 +14,12 @@
   box-sizing: border-box;
   position: relative;
 }
+<<<<<<< HEAD
 .combinedPage {
   zoom: 0.85; 
 }
+=======
+>>>>>>> 9023876a7449f97264b7b27ff5d626bd60e3c0b6
 
 /* Two Column Layout */
 .pageLayout {
@@ -584,13 +591,21 @@
   border: none;
   border-radius: 12px;
   transition: all 0.3s ease;
+<<<<<<< HEAD
   box-shadow: 0 8px 25px rgba(245, 213, 71, 0.4);
+=======
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+>>>>>>> 9023876a7449f97264b7b27ff5d626bd60e3c0b6
   cursor: pointer;
 }
 
 .createPaymentBtn:hover:not(.disabled) {
   transform: translateY(-3px);
+<<<<<<< HEAD
   box-shadow: 0 8px 25px rgba(245, 213, 71, 0.4);
+=======
+  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.4);
+>>>>>>> 9023876a7449f97264b7b27ff5d626bd60e3c0b6
   background: linear-gradient(135deg, var(--success-green), #cbc436);
 }
 

@@ -138,11 +138,12 @@
   
   .step {
     flex-direction: row;
+    left: -25px;
     width: 100%;
     margin-bottom: 0;
     align-items: flex-start;
     position: relative;
-    justify-content: flex-start; /* محاذاة المحتوى للبداية */
+    justify-content: flex-start; 
   }
   
   .stepIndicator {
@@ -202,10 +203,7 @@
     padding: var(--spacing-md) 0;
   }
   
-  .stepsContainer {
-    max-width: 300px; 
-  }
-  
+
   .stepCircle {
     width: 28px;
     height: 28px;

@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* ألوان من اللوجو الأصفر */
   --primary-yellow: #F5D547;
   --secondary-yellow: #F2C94C;
   --accent-yellow: #E0A500;
   --yellow-light: #FEF3C7;
   
-  /* ألوان إضافية مستوحاة من الصور */
   --success-green: #dbb200;
   --light-green: #D1FAE5;
   
@@ -24,7 +22,7 @@
   --gradient-main: linear-gradient(135deg, #F5D547 0%, #F2C94C 50%, #E0A500 100%);
   --gradient-light: linear-gradient(135deg, #efece2 0%, #eee6c2 100%);
   --gradient-success: linear-gradient(135deg, #D1FAE5 0%, #10B981 100%);
-  
+
   /* الخطوط */
   --font-family: 'Montserrat', sans-serif;
   --font-size-xs: 0.75rem;    /* 12px */
